@@ -15,3 +15,9 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+
+mix.setPublicPath('public')
+    .css('resources/css/navbar.css', 'public/css');
+
+mix.setPublicPath('public')
+    .css("resources/css/footer.css", "public/css")

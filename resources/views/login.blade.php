@@ -6,6 +6,8 @@
     <title>Login</title>
 </head>
 <body>
+    @include('navbar')
     <h1>Login</h1>
+    @include('footer')
 </body>
 </html>

@@ -6,7 +6,8 @@
     <title>Welcome</title>
 </head>
 <body>
+    @include('navbar')
     <h1>Hello Laravel</h1>
-    <a href="{{ route('login') }}">Login</a>
+    @include('footer')
 </body>
 </html>
