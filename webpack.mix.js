@@ -21,3 +21,6 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/footer.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/login.css", "public/css")
