@@ -6,26 +6,26 @@
     border-radius: 5px;
 }
 
-.form-group {
+.login-container .form-group {
     margin-bottom: 20px;
     margin-right: 15px;
 }
 
-label {
+.login-container label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
+.login-container input[type="text"],
+.login-container input[type="password"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button {
+.login-container button {
     width: 100%;
     padding: 10px;
     background-color: burlywood;
@@ -36,7 +36,7 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+.login-container button:hover {
     background-color: beige;
     color: black;
 }
