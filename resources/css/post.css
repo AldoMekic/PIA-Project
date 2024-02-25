@@ -1,0 +1,49 @@
+.post {
+    background-color: lightgoldenrodyellow;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.post-author {
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
+.post-buttons {
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: row;
+}
+
+.post button {
+    padding: 10px;
+    background-color: burlywood;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+}
+
+.post button:last-child {
+    margin-right: 0; 
+}
+
+.post button:hover {
+    background-color: sandybrown;
+}

@@ -27,3 +27,9 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/register.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/post.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/welcome.css", "public/css")

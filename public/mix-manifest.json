@@ -4,5 +4,7 @@
     "/css/login.css": "/css/login.css",
     "/css/footer.css": "/css/footer.css",
     "/css/navbar.css": "/css/navbar.css",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/css/welcome.css": "/css/welcome.css",
+    "/css/post.css": "/css/post.css"
 }
