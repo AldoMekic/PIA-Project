@@ -36,3 +36,6 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/profile.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/following.css", "public/css")
