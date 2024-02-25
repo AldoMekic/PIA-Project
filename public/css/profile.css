@@ -1,0 +1,49 @@
+.profile-info {
+    background-color: lightgoldenrodyellow;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.profile-info h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.profile-buttons {
+    margin-top: 20px;
+    background-color: aliceblue;
+}
+
+.profile-buttons button {
+    padding: 10px;
+    background-color: lightgoldenrodyellow;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-buttons button:last-child {
+    margin-right: 0;
+}
+
+.profile-buttons button:hover {
+    background-color: sandybrown;
+}
+
+.profile-blank {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    height: 850px;
+}
