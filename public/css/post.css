@@ -38,6 +38,7 @@
     cursor: pointer;
     margin-right: 10px; 
     margin-bottom: 10px; 
+    transition: 0.3s;
 }
 
 .post button:last-child {
@@ -46,4 +47,5 @@
 
 .post button:hover {
     background-color: sandybrown;
+    color: lightgoldenrodyellow;
 }
