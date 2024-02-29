@@ -2,43 +2,59 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use  HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['ime', 'prezime', 'email', 'pol', 'mesto_rodjenja', 'drzava', 'datum', 'jmbg', 'mobilni_telefon'];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    public static function createUser($ime, $prezime, $email, $pol, $mesto_rodjenja, $drzava, $datum, $jmbg, $mobilni_telefon)
+    {
+        return User::create([
+            'ime' => $ime,
+            'prezime' => $prezime,
+            'email' => $email,
+            'pol' => $pol,
+            'mesto_rodjenja' => $mesto_rodjenja,
+            'drzava' => $drzava,
+            'datum' => $datum,
+            'jmbg' => $jmbg,
+            'mobilni_telefon' => $mobilni_telefon
+        ]);
+    }
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public static function getAllUsers()
+    {
+        return User::all();
+    }
+
+    public static function getUserById($id)
+    {
+        return User::find($id);
+    }
+
+    public static function updateUser($userId, $ime, $prezime, $email, $pol, $mesto_rodjenja, $drzava, $datum, $jmbg, $mobilni_telefon)
+    {
+        $user = User::find($userId);
+        $user->ime = $ime;
+        $user->prezime = $prezime;
+        $user->email = $email;
+        $user->pol = $pol;
+        $user->mesto_rodjenja = $mesto_rodjenja;
+        $user->drzava = $drzava;
+        $user->datum = $datum;
+        $user->jmbg = $jmbg;
+        $user->mobilni_telefon = $mobilni_telefon;
+        $user->save();
+        return $user;
+    }
+
+    public static function deleteUser($userId)
+    {
+        $user = User::find($userId);
+        $user->delete();
+    }
 }
