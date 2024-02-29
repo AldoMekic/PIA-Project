@@ -24,7 +24,12 @@
         </ul>
     </nav>
 
+    <?php 
+        $post = null;
+    ?>
+
     <div class="content">
+        @include('welcome', ['post' => $post])
         @yield('content')
     </div>
 

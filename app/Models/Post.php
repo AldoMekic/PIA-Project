@@ -25,9 +25,9 @@ class Post extends Model
         return Post::all();
     }
 
-    public static function getPostById($id)
+    public static function getPostById($postID)
     {
-        return Post::find($id);
+        return Post::find($postID);
     }
 
     public static function updatePost($postId, $title, $content)
