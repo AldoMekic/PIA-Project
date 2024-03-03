@@ -6,8 +6,9 @@
     <h1>Hello Laravel</h1>
 
     <div class="welcome-container">
-        <x-post :title="$post->title" :author="$post->author">
-            {{ $post->content }}
-        </x-post>
+
+            <x-post :title="Title" :author="Aldin">
+                Jedan dva tri
+            </x-post>
     </div>
 @endsection

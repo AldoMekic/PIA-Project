@@ -29,7 +29,6 @@
     ?>
 
     <div class="content">
-        @include('welcome', ['post' => $post])
         @yield('content')
     </div>
 
