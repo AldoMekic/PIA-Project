@@ -6,10 +6,8 @@
     <h1>Hello Laravel</h1>
 
     <?php
-        $post = new \App\Models\Post();  // Instantiate the Post model
-        $post->title = "Naziv";
-        $post->author = "Autor";
-        $post->content = "Sadrzaj";
+        $postController = new \App\Http\Controllers\PostController();
+        $post = $postController->index();
     ?>
     <div class="welcome-container">
         <x-post :title="$post->title" :author="$post->author">
