@@ -24,10 +24,6 @@
         </ul>
     </nav>
 
-    <?php 
-        $post = null;
-    ?>
-
     <div class="content">
         @yield('content')
     </div>
