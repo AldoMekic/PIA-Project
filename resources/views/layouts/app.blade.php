@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('css/following.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/createPost.css') }}">
 </head>
 <body>
     <nav>
