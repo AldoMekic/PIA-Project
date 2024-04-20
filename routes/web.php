@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController; // Import the controller
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Existing routes
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -32,3 +34,6 @@ Route::get('/profile', function () {
 Route::get('/following', function () {
     return view('following');
 })->name('following');
+
+// Add the new POST route for user registration
+Route::post('/register', [UserController::class, 'register'])->name('user.register');
