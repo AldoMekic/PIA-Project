@@ -6,12 +6,15 @@
     <h1>Profile</h1>
     
     <div class="profile-info">
-        <?php
-            $username = "Username";
-            $joinedDate = "1/1/2024";
-        ?>
-        <h2>{{ $username }}</h2>
-        <p>User joined on: {{ $joinedDate }}</p>
+        @if (Session::has('user')) <!-- Check if session data exists -->
+            <?php
+                $userData = Session::get('user');
+            ?>
+            <h2>{{ $userData['username'] }}</h2>
+            <p>User joined on: {{ $userData['joined_date']->format('m/d/Y') }}</p> <!-- Format the date -->
+        @else
+            <p>No user data available.</p>
+        @endif
     </div>
 
     <div class="profile-buttons">

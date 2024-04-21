@@ -13,6 +13,15 @@ class User extends Model
     protected $primaryKey = 'userId'; 
 
     protected $fillable = [
-        'name', 'surname', 'gender', 'birthplace', 'date_of_birth', 'jmbg', 'phone_num', 'email'
+        'username', // Ensure this field is in fillable
+        'name',
+        'surname',
+        'gender',
+        'birthplace',
+        'date_of_birth',
+        'jmbg',
+        'phone_num',
+        'email',
+        'password' // Add this field to fillable
     ];
 }

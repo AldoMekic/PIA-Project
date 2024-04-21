@@ -37,3 +37,5 @@ Route::get('/following', function () {
 
 // Add the new POST route for user registration
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
+
+Route::post('/login', [UserController::class, 'login'])->name('user.login');
