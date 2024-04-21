@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('css/following.css') }}">
     <link rel="stylesheet" href="{{ asset('css/createPost.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/profile_info.css') }}">
 </head>
 <body>
     <nav>

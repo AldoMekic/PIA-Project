@@ -31,6 +31,22 @@ Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
 
+Route::get('/profile/info', function () {
+    return view('components.profile_info');
+});
+
+Route::get('/profile/posts', function () {
+    return view('components.profile_posts');
+});
+
+Route::get('/profile/saved', function () {
+    return view('components.profile_saved');
+});
+
+Route::get('/profile/works', function () {
+    return view('components.profile_works');
+});
+
 Route::get('/following', function () {
     return view('following');
 })->name('following');

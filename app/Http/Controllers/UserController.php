@@ -24,9 +24,16 @@ class UserController extends Controller
         $user = User::where('username', $username)->first();
 
         if ($user && Hash::check($password, $user->password)) {
-            // User is authenticated, store in session
+            // Store all required user data in the session
             Session::put('user', [
                 'username' => $user->username,
+                'name' => $user->name,
+                'surname' => $user->surname,
+                'gender' => $user->gender,
+                'birthplace' => $user->birthplace,
+                'date_of_birth' => $user->date_of_birth,
+                'jmbg' => $user->jmbg,
+                'phone_num' => $user->phone_num,
                 'joined_date' => $user->created_at,
             ]);
 
@@ -76,6 +83,13 @@ class UserController extends Controller
             // Store the user data in the session
             Session::put('user', [
                 'username' => $user->username,
+                'name' => $user->name,
+                'surname' => $user->surname,
+                'gender' => $user->gender,
+                'birthplace' => $user->birthplace,
+                'date_of_birth' => $user->date_of_birth,
+                'jmbg' => $user->jmbg,
+                'phone_num' => $user->phone_num,
                 'joined_date' => $user->created_at,
             ]);
 

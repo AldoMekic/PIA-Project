@@ -42,3 +42,6 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/createPost.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/profile_info.css", "public/css")
