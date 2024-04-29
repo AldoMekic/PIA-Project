@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
+    use Notifiable;  // Adds notification capabilities which is useful for sending password reset emails etc.
 
     protected $table = 'users';
-    protected $primaryKey = 'userId'; 
+    protected $primaryKey = 'userId';
 
     protected $fillable = [
-        'username', // Ensure this field is in fillable
+        'username', 
         'name',
         'surname',
         'gender',
@@ -22,6 +22,6 @@ class User extends Model
         'jmbg',
         'phone_num',
         'email',
-        'password' // Add this field to fillable
+        'password' 
     ];
 }

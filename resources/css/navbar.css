@@ -1,6 +1,6 @@
 nav {
     background-color: beige;
-    height: 50px; 
+    height: 50px;
     display: flex;
 }
 
@@ -12,18 +12,30 @@ nav ul {
 
 nav ul li {
     margin-top: 13px;
-    display: inline-block; 
+    display: inline-block;
     margin-left: 10px;
 }
 
-nav ul li a {
+nav ul li a, nav ul li button.nav-link {
     text-decoration: none;
     color: black;
+    background: none;
     border: 1px solid red;
     padding: 5px;
     transition: color 0.3s;
+    cursor: pointer;
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li button.nav-link:hover {
     color: #00f;
+}
+
+button.nav-link {
+    border: none; /* Optional: remove if you want the red border */
+    background: none;
+    padding: 0;
+    margin: 0;
+    font: inherit; /* Ensures the button font matches your links */
+    cursor: pointer;
+    display: inline;
 }
