@@ -1,5 +1,5 @@
 <div class="create-post">
-    <form method="POST">
+    <form method="POST" action="{{ route('post.store') }}">  
         @csrf
         <div class="form-group">
             <label for="title">Title</label>

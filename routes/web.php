@@ -35,6 +35,10 @@ Route::get('/profile/info', function () {
     return view('components.profile_info');
 });
 
+Route::get('/profile/createPost', function () {
+    return view('components.createPost');
+});
+
 Route::get('/profile/posts', function () {
     return view('components.profile_posts');
 });
@@ -57,3 +61,5 @@ Route::post('/register', [UserController::class, 'register'])->name('user.regist
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
 
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::post('/post/store', [PostController::class, 'store'])->name('post.store');

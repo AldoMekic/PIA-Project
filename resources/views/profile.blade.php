@@ -32,36 +32,44 @@
 
 @section('scripts') 
 <script>
-function showProfileInfo() {
-    fetch('/profile/info')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('profileBlank').innerHTML = html;
-        });
-}
+document.addEventListener('DOMContentLoaded', function() {
+    function showProfileInfo() {
+        fetch('/profile/info')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('profileBlank').innerHTML = html;
+            });
+    }
 
-function showProfilePosts() {
-    fetch('/profile/posts')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('profileBlank').innerHTML = html;
-        });
-}
+    function showProfilePosts() {
+        fetch('/profile/createPost')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('profileBlank').innerHTML = html;
+            });
+    }
 
-function showProfileSaved() {
-    fetch('/profile/saved')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('profileBlank').innerHTML = html;
-        });
-}
+    function showProfileSaved() {
+        fetch('/profile/saved')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('profileBlank').innerHTML = html;
+            });
+    }
 
-function showProfileWorks() {
-    fetch('/profile/works')
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById('profileBlank').innerHTML = html;
-        });
-}
+    function showProfileWorks() {
+        fetch('/profile/works')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('profileBlank').innerHTML = html;
+            });
+    }
+
+    // Bind buttons to functions
+    document.querySelector('[onclick="showProfileInfo()"]').addEventListener('click', showProfileInfo);
+    document.querySelector('[onclick="showProfilePosts()"]').addEventListener('click', showProfilePosts);
+    document.querySelector('[onclick="showProfileSaved()"]').addEventListener('click', showProfileSaved);
+    document.querySelector('[onclick="showProfileWorks()"]').addEventListener('click', showProfileWorks);
+});
 </script>
 @endsection

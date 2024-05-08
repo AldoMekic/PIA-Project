@@ -6,28 +6,27 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log; 
-use Illuminate\Support\Facades\Session; 
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
     public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'username' => 'required|string|max:255',
-            'password' => 'required|string|min:8',
-        ]);
+{
+    $credentials = $request->validate([
+        'username' => 'required|string|max:255',
+        'password' => 'required|string|min:8',
+    ]);
 
-        if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('profile')->with('success', 'Login successful.');
-        }
-
-        return back()->withErrors([
-            'username' => 'The provided credentials do not match our records.',
-        ]);
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
+        return redirect()->intended('profile')->with('success', 'Login successful.');
     }
+
+    return back()->withErrors([
+        'username' => 'The provided credentials do not match our records.',
+    ]);
+}
 
     public function register(Request $request)
 {

@@ -45,3 +45,6 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/profile_info.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/searchBar.css", "public/css")

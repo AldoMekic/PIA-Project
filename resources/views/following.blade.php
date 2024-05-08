@@ -3,7 +3,7 @@
 @section('title', 'Following')
 
 @section('content')
-    <h1>Hello {{ Session::get('user')['username'] ?? 'Guest' }}, welcome to: Following</h1> 
+    <h1>Hello {{ Auth::user()->username ?? 'Guest' }}, welcome to: Following</h1> 
     <div class="following-container">
         <x-post title="Example Following Post 1" author="John Doe">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in magna eget nisi varius
