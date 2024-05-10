@@ -32,24 +32,24 @@ Route::get('/profile', function () {
 })->name('profile');
 
 Route::get('/profile/info', function () {
-    return view('components.profile_info');
-});
+    return view('profileInfo');
+})->name('profile.info');
 
 Route::get('/profile/createPost', function () {
     return view('components.createPost');
 });
 
 Route::get('/profile/posts', function () {
-    return view('components.profile_posts');
-});
+    return view('profilePosts');
+})->name('profile.posts');
 
 Route::get('/profile/saved', function () {
-    return view('components.profile_saved');
-});
+    return view('profileSaved');
+})->name('profile.saved');
 
 Route::get('/profile/works', function () {
-    return view('components.profile_works');
-});
+    return view('profileWorks');
+})->name('profile.works');
 
 Route::get('/following', function () {
     return view('following');

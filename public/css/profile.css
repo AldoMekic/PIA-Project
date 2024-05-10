@@ -47,3 +47,24 @@
     border-radius: 5px;
     height: 850px;
 }
+
+.profile-buttons a {
+    display: inline-block;
+    padding: 10px;
+    background-color: lightgoldenrodyellow; /* Button color */
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-buttons a:last-child {
+    margin-right: 0;
+}
+
+.profile-buttons a:hover {
+    background-color: sandybrown; /* Hover effect */
+}
