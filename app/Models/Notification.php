@@ -14,10 +14,10 @@ class Notification extends Model
 
     protected $fillable = ['type', 'from', 'content', 'user_id', 'moderator_id', 'admin_id'];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id', 'userId');
-    }
+    public function users()
+{
+    return $this->belongsToMany(User::class, 'notification_user', 'notification_id', 'user_id');
+}
 
     public function moderator()
     {

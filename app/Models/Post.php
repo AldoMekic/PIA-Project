@@ -17,4 +17,14 @@ class Post extends Model
         $post = DB::table($this->table)->where('postID', $postId)->first();
         return $post;
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
 }

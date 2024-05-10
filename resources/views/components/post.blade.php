@@ -7,8 +7,22 @@
         <div class="post-content">{{ $slot }}</div>
     </div>
     <div class="post-footer">
+        <button onclick="toggleComment()">Comment</button>
         <button>Like</button>
-        <button>Comment</button>
         <button>Save</button>
     </div>
+    <x-createComment id="comment-section" style="display: none;" />
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        function toggleComment() {
+            var commentSection = document.getElementById('comment-section');
+            if (commentSection.style.display === 'none' || commentSection.style.display === '') {
+                commentSection.style.display = 'block';
+            } else {
+                commentSection.style.display = 'none';
+            }
+        }
+    });
+</script>

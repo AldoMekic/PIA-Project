@@ -14,7 +14,7 @@ use App\Http\Controllers\UserController; // Import the controller
 |
 */
 
-// Existing routes
+// GET
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -55,7 +55,7 @@ Route::get('/following', function () {
     return view('following');
 })->name('following');
 
-// Add the new POST route for user registration
+// POST
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
@@ -63,3 +63,5 @@ Route::post('/login', [UserController::class, 'login'])->name('user.login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
+
+Route::post('/comment/createComment', [CommentController::class, 'createComment'])->name('comments.store');

@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;  // Adds notification capabilities which is useful for sending password reset emails etc.
+    use Notifiable;  
 
     protected $table = 'users';
     protected $primaryKey = 'userId';
@@ -24,4 +24,24 @@ class User extends Authenticatable
         'email',
         'password' 
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function posts()
+{
+    return $this->hasMany(Post::class, 'user_id');
+}
+
+public function themes()
+{
+    return $this->belongsToMany(Theme::class, 'theme_user', 'user_id', 'theme_id');
+}
+
+public function notifications()
+{
+    return $this->hasMany(Notification::class, 'user_id');
+}
 }
