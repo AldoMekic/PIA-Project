@@ -51,9 +51,33 @@ Route::get('/profile/works', function () {
     return view('profileWorks');
 })->name('profile.works');
 
+Route::get('/theme/posts', function () {
+    return view('theme'); // Ensure the view name matches the actual file
+})->name('theme.posts');
+
+Route::get('/theme/news', function () {
+    return view('themeNews');
+})->name('theme.news');
+
+Route::get('/theme/settings', function () {
+    return view('themeSettings');
+})->name('theme.settings');
+
+Route::get('/theme/polls', function () {
+    return view('themePolls');
+})->name('theme.polls');
+
 Route::get('/following', function () {
     return view('following');
 })->name('following');
+
+Route::get('/notifications', function () {
+    return view('notificationsPage');
+})->name('notifications');
+
+Route::get('/theme', function () {
+    return view('theme');
+})->name('theme');
 
 // POST
 Route::post('/register', [UserController::class, 'register'])->name('user.register');

@@ -3,7 +3,7 @@
 @section('title', 'Profile Saved')
 
 @section('content')
-<h1>Profile</h1>
+<h1>Saved Posts</h1>
 
 @auth
     <div class="profile-info">
@@ -11,10 +11,9 @@
         <p>User joined on: {{ Auth::user()->created_at->format('m/d/Y') }}</p>
     </div>
     @include('components.navbar')
-    @include('components.profile_saved') <!-- Saved content component -->
+    @include('components.profile_saved')
 @else
     <p>No user data available.</p>
 @endif
-
 
 @endsection

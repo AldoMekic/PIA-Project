@@ -10,7 +10,7 @@
         <h2>{{ Auth::user()->username }}</h2>
         <p>User joined on: {{ Auth::user()->created_at->format('m/d/Y') }}</p>
     </div>
-    @include('profileInfo') <!-- Include the Profile Info content directly here -->
+    @include('profileInfo') 
 @else
     <p>No user data available.</p>
 @endif
