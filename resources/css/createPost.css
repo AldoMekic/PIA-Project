@@ -4,7 +4,9 @@
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
-    max-width: 350px;
+    max-width: 350px; /* Ensures it has the same max width as the post component */
+    width: 100%; /* Ensures it adjusts to the parent container if narrower than 350px */
+    box-sizing: border-box; /* Includes padding and border in the width */
 }
 
 .form-group {
@@ -13,17 +15,16 @@
 }
 
 .form-group label {
-    display: inline-block; 
+    display: block; /* Ensures the label is above the input */
     margin-bottom: 5px;
 }
 
 .form-control {
-    width: calc(100% - 20px); 
+    width: 100%; /* Ensures the input fills the available space */
     padding: 10px;
     border: 1px solid burlywood;
     border-radius: 5px;
-    display: inline-block; 
-    box-sizing: border-box; 
+    box-sizing: border-box; /* Includes padding in the input's total width */
 }
 
 .btn-post {
@@ -34,7 +35,9 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    float: right; 
+    display: block; /* Ensures the button is a block element */
+    width: 100%; /* Ensures the button stretches to the width of its container */
+    margin-top: 10px; /* Adds space between the button and the last input */
 }
 
 .btn-post:hover {

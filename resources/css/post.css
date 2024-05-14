@@ -64,3 +64,31 @@
     background-color: sandybrown;
     color: lightgoldenrodyellow;
 }
+
+.create-comment {
+    padding: 10px; /* Ensures padding inside the comment box */
+    width: 100%; /* Ensures the comment box fits within the post */
+}
+
+.create-comment textarea {
+    width: 100%; /* Makes the textarea responsive and fits container width */
+    box-sizing: border-box; /* Ensures padding and borders are included in the width */
+    border: 1px solid burlywood; /* Styling to match the post */
+    border-radius: 5px; /* Rounded corners for the textarea */
+    padding: 8px; /* Padding inside the textarea */
+}
+
+.create-comment button {
+    background-color: burlywood;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-top: 10px; /* Space between textarea and button */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-comment button:hover {
+    background-color: sandybrown;
+}
