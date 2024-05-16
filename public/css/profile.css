@@ -68,3 +68,37 @@
 .profile-buttons a:hover {
     background-color: sandybrown; /* Hover effect */
 }
+
+.user-settings {
+    background-color: lightgoldenrodyellow;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.user-settings .form-group {
+    margin-bottom: 10px;
+}
+
+.user-settings .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+}
+
+.user-settings button {
+    padding: 10px 20px;
+    background-color: burlywood;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    color: white;
+}
+
+.user-settings button:hover {
+    background-color: sandybrown;
+}

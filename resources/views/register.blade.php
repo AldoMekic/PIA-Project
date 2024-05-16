@@ -8,16 +8,20 @@
         <form action="{{ route('user.register') }}" method="POST"> <!-- Updated route -->
             @csrf
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
                 <label for="surname">Surname:</label>
                 <input type="text" id="surname" name="surname" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="gender">Gender:</label>
@@ -41,14 +45,6 @@
             <div class="form-group">
                 <label for="phone_num">Phone Number:</label>
                 <input type="text" id="phone_num" name="phone_num" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
             </div>
             <button type="submit">Register</button>
         </form>

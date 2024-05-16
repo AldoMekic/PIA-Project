@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\UserPassword; // Assuming you have a model for the user_passwords table
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log; 
 use Illuminate\Support\Facades\Auth;
@@ -28,10 +29,9 @@ class UserController extends Controller
     ]);
 }
 
-    public function register(Request $request)
+public function register(Request $request)
 {
     $request->validate([
-        'username' => 'required|string|max:255|unique:users,username',
         'name' => 'required|string|max:255',
         'surname' => 'required|string|max:255',
         'gender' => 'required|in:M,F',
@@ -43,8 +43,11 @@ class UserController extends Controller
         'password' => 'required|string|min:8',
     ]);
 
+    // Generate username
+    $username = strtolower($request->input('name') . $request->input('surname'));
+
     $user = new User([
-        'username' => $request->input('username'), // make sure to use input method
+        'username' => $username,
         'name' => $request->input('name'),
         'surname' => $request->input('surname'),
         'gender' => $request->input('gender'),
@@ -53,7 +56,7 @@ class UserController extends Controller
         'jmbg' => $request->input('jmbg'),
         'phone_num' => $request->input('phone_num'),
         'email' => $request->input('email'),
-        'password' => Hash::make($request->input('password')), 
+        'password' => Hash::make($request->input('password')),
     ]);
 
     $user->save(); // Save the user to the database
@@ -76,4 +79,32 @@ public function logout(Request $request)
         $user = User::find($userId); 
         return $user;
     }
+
+    
+
+public function changePassword(Request $request)
+{
+    $request->validate([
+        'password' => 'required|string|min:8',
+    ]);
+
+    $user = Auth::user();
+    $newPassword = $request->input('password');
+    $passwordRecord = UserPassword::where('user_id', $user->userId)->first();
+
+    if (Hash::check($newPassword, $passwordRecord->first_pass) || Hash::check($newPassword, $passwordRecord->second_pass)) {
+        return back()->withErrors(['password' => 'The new password cannot be the same as your current or previous passwords.']);
+    }
+
+    // Update the passwords
+    $passwordRecord->second_pass = $passwordRecord->first_pass; // Move current to previous
+    $passwordRecord->first_pass = Hash::make($newPassword); // Set new password
+    $passwordRecord->save();
+
+    // Update user's password
+    $user->password = Hash::make($newPassword);
+    $user->save();
+
+    return redirect()->route('profile.settings')->with('success', 'Password successfully changed.');
+}
 }
