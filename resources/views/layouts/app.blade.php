@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ mix('css/searchBar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/notification.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/textCard.css') }}">
 </head>
 <body>
 <nav>

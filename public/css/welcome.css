@@ -1,8 +1,28 @@
-.welcome-container {
+.welcome-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin-top: 20px;
-    width: 100%; 
+    align-items: center;
+    padding: 40px;
+    background-color: aliceblue; /* Add a background color */
+}
+
+.upper-div, .middle-div, .lower-div {
+    width: 80%;
+    margin-bottom: 30px; /* Increase distance between divs */
+    text-align: center;
+}
+
+.middle-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.lower-div a {
+    color: burlywood;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.lower-div a:hover {
+    color: sandybrown;
 }

@@ -6,12 +6,14 @@
     <div class="post-body">
         <div class="post-content">{{ $slot }}</div>
     </div>
+    @auth
     <div class="post-footer">
         <button onclick="toggleComment()">Comment</button>
         <button>Like</button>
         <button>Save</button>
     </div>
     <x-createComment id="comment-section" style="display: none;" />
+    @endauth
 </div>
 
 <script>

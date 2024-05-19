@@ -9,6 +9,12 @@
 
 @include('components.theme_navbar')
 
+@guest
+    <x-text_card>
+        To be able to see the full features available, you will need to <a href="{{ route('login') }}" class="auth-link">log in</a> or <a href="{{ route('register') }}" class="auth-link">register</a>.
+    </x-text_card>
+@endguest
+
 <div class="posts-container">
     <x-post title="Example Following Post 1" author="John Doe">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in magna eget nisi varius sodales. Nulla facilisi. Curabitur sit amet ullamcorper turpis. In hac habitasse platea dictumst.

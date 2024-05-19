@@ -1,8 +1,8 @@
 .page-title {
     text-align: center;
     margin-top: 20px;
-    font-size: 1.5rem; /* Match h2 size on profile page */
-    color: #333; /* Consistent text color */
+    font-size: 1.5rem;
+    color: #333;
 }
 
 .posts-container {
@@ -10,8 +10,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%; /* Limit width and center it */
-    background-color: aliceblue; /* Light background for container */
+    width: 80%;
+    background-color: aliceblue;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -27,9 +27,9 @@
 .btn-theme {
     display: inline-block;
     padding: 10px;
-    background-color: lightgoldenrodyellow; /* Button color */
-    color: #333; /* Text color */
-    text-decoration: none; /* Remove underline */
+    background-color: lightgoldenrodyellow;
+    color: #333;
+    text-decoration: none;
     border: none;
     border-radius: 5px;
     margin-right: 10px;
@@ -42,5 +42,5 @@
 }
 
 .btn-theme:hover {
-    background-color: sandybrown; /* Hover effect */
+    background-color: sandybrown;
 }

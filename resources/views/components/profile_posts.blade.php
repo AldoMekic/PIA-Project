@@ -1,8 +1,9 @@
 <h2>Posts</h2>
 
-@include('components.createPost')
+
 
 <div class="following-container">
+@include('components.createPost')
         <!-- Assuming these posts are placeholders for the dynamically fetched posts -->
         <x-post title="Example Following Post 1" author="John Doe">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in magna eget nisi varius

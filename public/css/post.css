@@ -4,7 +4,8 @@
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
-    max-width: 350px;
+    width: 80%; /* Increase width */
+    max-width: none; /* Remove max-width constraint */
     display: flex;
     flex-direction: column;
 }
@@ -13,7 +14,7 @@
     background-color: white;
     padding: 10px;
     border-radius: 8px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
 .post-title {
@@ -34,14 +35,14 @@
 }
 
 .post-content {
-    margin: 0; 
+    margin: 0;
 }
 
 .post-footer {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .post button {
@@ -51,13 +52,13 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px; 
-    margin-bottom: 10px; 
+    margin-right: 10px;
+    margin-bottom: 10px;
     transition: 0.3s;
 }
 
 .post button:last-child {
-    margin-right: 0; 
+    margin-right: 0;
 }
 
 .post button:hover {
@@ -66,16 +67,16 @@
 }
 
 .create-comment {
-    padding: 10px; /* Ensures padding inside the comment box */
-    width: 100%; /* Ensures the comment box fits within the post */
+    padding: 10px;
+    width: 100%;
 }
 
 .create-comment textarea {
-    width: 100%; /* Makes the textarea responsive and fits container width */
-    box-sizing: border-box; /* Ensures padding and borders are included in the width */
-    border: 1px solid burlywood; /* Styling to match the post */
-    border-radius: 5px; /* Rounded corners for the textarea */
-    padding: 8px; /* Padding inside the textarea */
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 8px;
 }
 
 .create-comment button {
@@ -84,7 +85,7 @@
     border: none;
     border-radius: 5px;
     padding: 8px 16px;
-    margin-top: 10px; /* Space between textarea and button */
+    margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
