@@ -22,4 +22,14 @@ class Theme extends Model
     {
         return $this->hasMany(Post::class, 'theme_id');
     }
+
+    public function news()
+    {
+        return $this->hasMany(News::class, 'theme_id');
+    }
+
+    public function polls()
+    {
+        return $this->hasMany(Poll::class, 'theme_id');
+    }
 }

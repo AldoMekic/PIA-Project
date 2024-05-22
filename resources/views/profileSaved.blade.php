@@ -11,9 +11,15 @@
         <p>User joined on: {{ Auth::user()->created_at->format('m/d/Y') }}</p>
     </div>
     @include('components.navbar')
-    @include('components.profile_saved')
+
+    <div class="posts-container">
+        @foreach ($savedPosts as $post)
+            <x-post :title="$post->title" :author="$post->author" :postID="$post->postID">
+                {{ $post->content }}
+            </x-post>
+        @endforeach
+    </div>
 @else
     <p>No user data available.</p>
 @endif
-
 @endsection

@@ -1,13 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Theme Page')
+@section('title', $theme->name . ' Page')
 
 @section('content')
 <div class="page-title">
-    <h1>Theme Page</h1>
+    <h1>{{ $theme->name }} Page</h1>
 </div>
 
-@include('components.theme_navbar')
+@auth
+    @include('components.theme_navbar', ['theme' => $theme])
+@endauth
 
 @guest
     <x-text_card>
@@ -15,13 +17,18 @@
     </x-text_card>
 @endguest
 
-<div class="posts-container">
-    <x-post title="Example Following Post 1" author="John Doe">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in magna eget nisi varius sodales. Nulla facilisi. Curabitur sit amet ullamcorper turpis. In hac habitasse platea dictumst.
-    </x-post>
+<div class="theme-description">
+    <x-text_card>
+        {{ $theme->description }}
+    </x-text_card>
+</div>
 
-    <x-post title="Example Following Post 2" author="Jane Doe">
-        Fusce efficitur magna in ante cursus blandit. Nulla facilisi. Ut at nisl et neque semper suscipit. Integer vehicula ante eu nulla volutpat tincidunt.
-    </x-post>
+<div class="posts-container">
+      
+        @foreach ($theme->posts as $post)
+            <x-post :postID="$post->postID" :title="$post->title" :author="$post->author">
+                {{ $post->content }}
+            </x-post>
+        @endforeach
 </div>
 @endsection

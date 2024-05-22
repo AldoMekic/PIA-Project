@@ -10,21 +10,42 @@
     <div class="post-footer">
         <button onclick="toggleComment()">Comment</button>
         <button>Like</button>
-        <button>Save</button>
+        <form action="{{ route('post.savePost', ['post' => $postID]) }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit">Save</button>
+        </form>
     </div>
     <x-createComment id="comment-section" style="display: none;" />
     @endauth
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        function toggleComment() {
-            var commentSection = document.getElementById('comment-section');
-            if (commentSection.style.display === 'none' || commentSection.style.display === '') {
-                commentSection.style.display = 'block';
+    function savePost(postID) {
+        fetch('/save-post', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ postID: postID })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.success) {
+                alert('Post saved successfully!');
             } else {
-                commentSection.style.display = 'none';
+                alert('Post already saved.');
             }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function toggleComment() {
+        var commentSection = document.getElementById('comment-section');
+        if (commentSection.style.display === 'none' || commentSection.style.display === '') {
+            commentSection.style.display = 'block';
+        } else {
+            commentSection.style.display = 'none';
         }
-    });
+    }
 </script>

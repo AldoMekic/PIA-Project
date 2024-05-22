@@ -4,10 +4,12 @@
 
 @section('content')
 <div class="page-title">
-    <h1>Theme Settings</h1>
+    <h1>{{ $theme->name }} Settings</h1>
 </div>
 
-@include('components.theme_navbar')
+@auth
+    @include('components.theme_navbar', ['theme' => $theme])
+@endauth
 
 @guest
     <x-text_card>

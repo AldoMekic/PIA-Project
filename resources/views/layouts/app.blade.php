@@ -31,8 +31,6 @@
 
         @auth
             <li><a href="{{ route('profile') }}">Profile</a></li>
-            <li><a href="{{ route('following') }}">Followed</a></li>
-            <li><a href="{{ route('notifications') }}">Notifications</a></li>
             <li>
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf

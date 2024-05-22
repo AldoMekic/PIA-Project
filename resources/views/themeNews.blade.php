@@ -1,13 +1,33 @@
 @extends('layouts.app')
 
-@section('title', 'Theme News')
+@section('title', $theme->name . ' News')
 
 @section('content')
 <div class="page-title">
-    <h1>Theme News</h1>
+    <h1>{{ $theme->name }} News</h1>
 </div>
 
-@include('components.theme_navbar')
+@auth
+    @include('components.theme_navbar', ['theme' => $theme])
+
+    
+
+    <div class="posts-container">
+    @if (Auth::user()->isAdmin() || Auth::user()->isModerator())
+        @include('components.createNewsPost', ['theme' => $theme])
+    @endif
+    <h2>Latest News</h2>
+    @if($theme->news && $theme->news->count() > 0)
+        @foreach ($theme->news as $news)
+            <x-newsPost :newsId="$news->newsId" :title="$news->title" :author="$news->author">
+                {{ $news->content }}
+            </x-newsPost>
+        @endforeach
+    @else
+        <p>No news available for this theme.</p>
+    @endif
+</div>
+@endauth
 
 @guest
     <x-text_card>
@@ -15,8 +35,5 @@
     </x-text_card>
 @endguest
 
-<div class="posts-container">
-    <h2>Latest News</h2>
-    <!-- News content will go here -->
-</div>
+
 @endsection

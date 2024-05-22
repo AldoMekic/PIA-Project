@@ -17,6 +17,12 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.theme-description {
+    margin: 20px auto;
+    width: 80%;
+}
+
+
 .theme-buttons {
     display: flex;
     justify-content: center;

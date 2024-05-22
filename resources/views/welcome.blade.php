@@ -26,10 +26,12 @@
     </div>
 
     <!-- Lower Div -->
+    
     <div class="lower-div">
         <x-text_card>
             To be able to see the full extent of what our website offers, you will need to become part of the community. For our new arrivals, you will need to <a href="{{ route('register') }}" class="auth-link">register</a> yourselves to our page, while for those who already have accounts, you will need to <a href="{{ route('login') }}" class="auth-link">log in</a> to be able to access the website's full features.
         </x-text_card>
     </div>
+    
 </div>
 @endsection

@@ -44,4 +44,14 @@ public function notifications()
 {
     return $this->hasMany(Notification::class, 'user_id');
 }
+
+public function isAdmin()
+    {
+        return $this->hasOne(Administrator::class, 'user_id')->exists();
+    }
+
+    public function isModerator()
+    {
+        return $this->hasOne(Moderator::class, 'user_id')->exists();
+    }
 }
