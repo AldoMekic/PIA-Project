@@ -1,0 +1,47 @@
+.theme-post {
+    background-color: lightgoldenrodyellow;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-header {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.theme-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.theme-description {
+    font-style: italic;
+}
+
+.theme-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.theme-footer .btn-primary {
+    padding: 10px 20px;
+    background-color: burlywood;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-footer .btn-primary:hover {
+    background-color: sandybrown;
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Theme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ThemeController extends Controller
 {
@@ -37,5 +38,19 @@ class ThemeController extends Controller
     {
         $theme = Theme::with('polls')->findOrFail($themeId);
         return view('themePolls', compact('theme'));
+    }
+
+    public function follow($themeId)
+    {
+        $theme = Theme::findOrFail($themeId);
+        $user = Auth::user();
+        
+        if ($user->themes->contains($theme->themeId)) {
+            $user->themes()->detach($theme); // Unfollow functionality
+        } else {
+            $user->themes()->attach($theme); // Follow functionality
+        }
+
+        return redirect()->back();
     }
 }

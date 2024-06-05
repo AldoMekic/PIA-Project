@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ asset('css/notification.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/textCard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/theme_post.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/theme_navbar.css') }}">
 </head>
 <body>
 <nav>
@@ -31,6 +33,9 @@
 
         @auth
             <li><a href="{{ route('profile') }}">Profile</a></li>
+            @if (auth()->user()->isModeratorOrAdmin())
+                <li><a href="{{ route('staffSettings') }}">Staff Settings</a></li>
+            @endif
             <li>
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf

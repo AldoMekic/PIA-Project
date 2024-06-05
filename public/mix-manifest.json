@@ -5,6 +5,8 @@
     "/css/footer.css": "/css/footer.css",
     "/css/navbar.css": "/css/navbar.css",
     "/css/app.css": "/css/app.css",
+    "/css/theme_navbar.css": "/css/theme_navbar.css",
+    "/css/theme_post.css": "/css/theme_post.css",
     "/css/textCard.css": "/css/textCard.css",
     "/css/theme.css": "/css/theme.css",
     "/css/notification.css": "/css/notification.css",

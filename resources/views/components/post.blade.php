@@ -10,7 +10,7 @@
     <div class="post-footer">
         <button onclick="toggleComment()">Comment</button>
         <button>Like</button>
-        <form action="{{ route('post.savePost', ['post' => $postID]) }}" method="POST" style="display:inline;">
+        <form action="{{ route('post.savePost', ['postID' => $postID]) }}" method="POST" style="display:inline;">
             @csrf
             <button type="submit">Save</button>
         </form>

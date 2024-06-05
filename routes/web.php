@@ -6,8 +6,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ProfileController;
 
-// GET
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -20,29 +20,13 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile');
-
-Route::get('/profile/info', function () {
-    return view('profileInfo');
-})->name('profile.info');
-
-Route::get('/profile/createPost', function () {
-    return view('components.createPost');
-});
-
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::get('/profile/info', [ProfileController::class, 'info'])->name('profile.info');
 Route::get('/profile/posts', [PostController::class, 'userPosts'])->name('profile.posts');
-
 Route::get('/profile/saved', [PostController::class, 'savedPosts'])->name('profile.saved');
-
-Route::get('/profile/works', function () {
-    return view('profileWorks');
-})->name('profile.works');
-
-Route::get('/profile/settings', function () {
-    return view('profileSettings');
-})->name('profile.settings');
+Route::get('/profile/settings', [ProfileController::class, 'settings'])->name('profile.settings');
+Route::get('/profile/works', [ProfileController::class, 'works'])->name('profile.works');
+Route::get('/profile/themes', [ProfileController::class, 'themes'])->name('profile.themes');
 
 Route::get('/theme/{themeId}/posts', [ThemeController::class, 'show'])->name('theme.posts');
 Route::get('/theme/{themeId}/news', [ThemeController::class, 'news'])->name('theme.news');
@@ -60,7 +44,12 @@ Route::get('/notifications', function () {
 Route::get('/theme/{themeId}', [ThemeController::class, 'show'])->name('theme.show');
 Route::get('/search/themes', [ThemeController::class, 'search'])->name('search.themes');
 
-// POST
+Route::get('/staffsettings', function () {
+    return view('staffSettings');
+})->name('staffSettings');
+
+Route::get('/notifications', [NotificationController::class, 'userNotifications'])->name('notifications');
+
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
@@ -71,3 +60,4 @@ Route::post('/profile/settings/change-password', [UserController::class, 'change
 Route::post('/news/store', [NewsController::class, 'store'])->name('news.store');
 Route::post('/poll/store', [PollController::class, 'store'])->name('poll.store');
 Route::post('/poll/vote/{poll}', [PollController::class, 'vote'])->name('poll.vote');
+Route::post('/theme/{themeId}/follow', [ThemeController::class, 'follow'])->name('theme.follow');

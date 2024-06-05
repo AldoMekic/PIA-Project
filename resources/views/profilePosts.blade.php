@@ -16,7 +16,7 @@
     <div class="posts-container">
         @include('components.createPost')
         @foreach ($posts as $post)
-            <x-post :title="$post->title" :author="$post->author" :postID="$post->postID">
+            <x-post :postID="$post->postID" :title="$post->title" :author="$post->author">
                 {{ $post->content }}
             </x-post>
         @endforeach

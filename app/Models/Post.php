@@ -12,10 +12,11 @@ class Post extends Model
 
     protected $table = 'posts'; 
 
+    protected $primaryKey = 'postID'; // Ensure the primary key is correctly defined
+
     public function getPostById($postId)
     {
-        $post = DB::table($this->table)->where('postID', $postId)->first();
-        return $post;
+        return DB::table($this->table)->where('postID', $postId)->first();
     }
 
     public function comments()

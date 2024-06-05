@@ -1,0 +1,31 @@
+.theme-navbar {
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.theme-navbar .btn-link,
+.theme-navbar .btn-primary {
+    margin: 0 10px;
+    color: black;
+    background: none;
+    border: 1px solid red;
+    padding: 5px;
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.theme-navbar .btn-link:hover,
+.theme-navbar .btn-primary:hover {
+    color: #00f;
+}
+
+.follow-form {
+    display: inline-block;
+    margin-left: 10px;
+}

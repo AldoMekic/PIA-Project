@@ -24,11 +24,10 @@
 </div>
 
 <div class="posts-container">
-      
-        @foreach ($theme->posts as $post)
-            <x-post :postID="$post->postID" :title="$post->title" :author="$post->author">
-                {{ $post->content }}
-            </x-post>
-        @endforeach
+    @foreach ($theme->posts as $post)
+        <x-post :postID="$post->postID" :title="$post->title" :author="$post->author">
+            {{ $post->content }}
+        </x-post>
+    @endforeach
 </div>
 @endsection

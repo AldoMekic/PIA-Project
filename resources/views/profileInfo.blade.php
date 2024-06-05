@@ -15,6 +15,4 @@
 @else
     <p>No user data available.</p>
 @endif
-
-
 @endsection

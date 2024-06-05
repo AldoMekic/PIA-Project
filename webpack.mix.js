@@ -57,3 +57,9 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/textCard.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/theme_post.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/theme_navbar.css", "public/css")

@@ -7,13 +7,13 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;  
+    use Notifiable;
 
     protected $table = 'users';
     protected $primaryKey = 'userId';
 
     protected $fillable = [
-        'username', 
+        'username',
         'name',
         'surname',
         'gender',
@@ -22,7 +22,7 @@ class User extends Authenticatable
         'jmbg',
         'phone_num',
         'email',
-        'password' 
+        'password',
     ];
 
     public function comments()
@@ -31,27 +31,32 @@ class User extends Authenticatable
     }
 
     public function posts()
-{
-    return $this->hasMany(Post::class, 'user_id');
-}
-
-public function themes()
-{
-    return $this->belongsToMany(Theme::class, 'theme_user', 'user_id', 'theme_id');
-}
-
-public function notifications()
-{
-    return $this->hasMany(Notification::class, 'user_id');
-}
-
-public function isAdmin()
     {
-        return $this->hasOne(Administrator::class, 'user_id')->exists();
+        return $this->hasMany(Post::class, 'user_id');
+    }
+
+    public function themes()
+    {
+        return $this->belongsToMany(Theme::class, 'theme_user', 'user_id', 'theme_id');
+    }
+
+    public function notifications()
+    {
+        return $this->belongsToMany(Notification::class, 'notification_user', 'user_id', 'notification_id');
     }
 
     public function isModerator()
     {
         return $this->hasOne(Moderator::class, 'user_id')->exists();
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasOne(Administrator::class, 'user_id')->exists();
+    }
+
+    public function isModeratorOrAdmin()
+    {
+        return $this->isModerator() || $this->isAdmin();
     }
 }
