@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
+use App\Models\UserSaved;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -128,5 +131,38 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('profile.settings')->with('success', 'Password successfully changed.');
+    }
+
+    public function deleteAccount(Request $request)
+    {
+        $user = Auth::user();
+
+        // Delete all posts by the user
+        Post::where('user_id', $user->userId)->delete();
+
+        // Delete all saved posts by the user
+        UserSaved::where('user_id', $user->userId)->delete();
+
+        // Remove user from all followed themes
+        DB::table('theme_user')->where('user_id', $user->userId)->delete();
+
+        // Delete all notifications for the user
+        DB::table('notification_user')->where('user_id', $user->userId)->delete();
+
+        // Delete user passwords
+        DB::table('user_passwords')->where('user_id', $user->userId)->delete();
+
+        // Finally, delete the user
+        $user->delete();
+
+        // Log out the user
+        Auth::logout();
+
+        // Invalidate the session and regenerate the CSRF token
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        // Redirect to the welcome page
+        return redirect()->route('welcome')->with('success', 'Account deleted successfully.');
     }
 }

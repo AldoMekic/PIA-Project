@@ -1,1 +1,13 @@
-footer{align-items:center;background-color:beige;display:flex;height:50px;justify-content:center}footer p{color:#000;margin:0;text-align:center}
+footer {
+    background-color: beige;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+    color: black;
+}

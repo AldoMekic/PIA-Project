@@ -63,3 +63,6 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/theme_navbar.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/deleteAccount.css", "public/css")

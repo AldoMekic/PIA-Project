@@ -8,6 +8,10 @@ use App\Http\Controllers\PollController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
 
+
+// GET
+
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
@@ -50,6 +54,9 @@ Route::get('/staffsettings', function () {
 
 Route::get('/notifications', [NotificationController::class, 'userNotifications'])->name('notifications');
 
+// POST
+
+
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
@@ -61,3 +68,7 @@ Route::post('/news/store', [NewsController::class, 'store'])->name('news.store')
 Route::post('/poll/store', [PollController::class, 'store'])->name('poll.store');
 Route::post('/poll/vote/{poll}', [PollController::class, 'vote'])->name('poll.vote');
 Route::post('/theme/{themeId}/follow', [ThemeController::class, 'follow'])->name('theme.follow');
+
+// DELETE
+
+Route::delete('/user/delete', [UserController::class, 'deleteAccount'])->name('user.delete');

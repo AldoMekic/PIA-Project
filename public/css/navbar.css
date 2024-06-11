@@ -1,1 +1,44 @@
-nav{background-color:beige;height:50px;justify-content:space-between;padding:0 10px}nav,nav ul{align-items:center;display:flex}nav ul{flex-grow:1;list-style-type:none;margin:0;padding:0}nav ul li{margin:0 10px}nav ul li a,nav ul li button.nav-link{background:none;border:1px solid red;color:#000;cursor:pointer;padding:5px;text-decoration:none;transition:color .3s}nav ul li a:hover,nav ul li button.nav-link:hover{color:#00f}button.nav-link{background:none;border:none;cursor:pointer;font:inherit;margin:0;padding:0}
+nav {
+    background-color: beige;
+    height: 50px;
+    display: flex;
+    justify-content: space-between; /* Ensures space distribution between elements */
+    align-items: center; /* Aligns items vertically in the center */
+    padding: 0 10px;
+}
+
+nav ul {
+    display: flex;
+    flex-grow: 1; /* Takes up all available space */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a, nav ul li button.nav-link {
+    text-decoration: none;
+    color: black;
+    background: none;
+    border: 1px solid red;
+    padding: 5px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+nav ul li a:hover, nav ul li button.nav-link:hover {
+    color: #00f;
+}
+
+button.nav-link {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+}

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('css/textCard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme_post.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme_navbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/deleteAccount.css') }}">
 </head>
 <body>
 <nav>

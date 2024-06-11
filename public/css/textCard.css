@@ -1,1 +1,18 @@
-.text-card{background-color:#fafad2;border:1px solid #deb887;border-radius:5px;box-shadow:0 2px 4px rgba(0,0,0,.1);margin:15px;padding:30px;text-align:center}.auth-link{color:#deb887;text-decoration:none}.auth-link:hover{text-decoration:underline}
+.text-card {
+    background-color: lightgoldenrodyellow;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 30px; /* Adjust padding as needed */
+    margin: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text inside the card */
+}
+
+.auth-link {
+    color: burlywood;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}

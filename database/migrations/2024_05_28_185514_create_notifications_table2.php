@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateNotificationsTable2 extends Migration
 {
+
     public function up()
     {
+        Schema::dropIfExists('notifications');
+        
         Schema::create('notifications', function (Blueprint $table) {
             $table->id('notificationId');
             $table->string('type');
