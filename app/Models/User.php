@@ -45,14 +45,24 @@ class User extends Authenticatable
         return $this->belongsToMany(Notification::class, 'notification_user', 'user_id', 'notification_id');
     }
 
+    public function moderator()
+    {
+        return $this->hasOne(Moderator::class, 'user_id');
+    }
+
+    public function administrator()
+    {
+        return $this->hasOne(Administrator::class, 'user_id');
+    }
+
     public function isModerator()
     {
-        return $this->hasOne(Moderator::class, 'user_id')->exists();
+        return $this->moderator()->exists();
     }
 
     public function isAdmin()
     {
-        return $this->hasOne(Administrator::class, 'user_id')->exists();
+        return $this->administrator()->exists();
     }
 
     public function isModeratorOrAdmin()

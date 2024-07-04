@@ -13,27 +13,20 @@ use App\Http\Controllers\ModeratorController;
 use App\Http\Controllers\AdministratorController;
 
 
-// GET
-
+// GET Routes
 Route::get('/notifications', [NotificationController::class, 'userNotifications'])->name('notifications');
 Route::get('/browsing', [BrowsingController::class, 'index'])->name('browsing');
 Route::get('/moderator-themes', [ModeratorController::class, 'index'])->name('moderatorThemes')->middleware('moderator');
-Route::get('/admin', [AdministratorController::class, 'index'])->name('adminPage')->middleware('admin');
-
-
-
+Route::get('/admin', [AdministratorController::class, 'index'])->name('adminPage');
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
-
 Route::get('/login', function () {
     return view('login');
 })->name('login');
-
 Route::get('/register', function () {
     return view('register');
 })->name('register');
-
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/info', [ProfileController::class, 'info'])->name('profile.info');
 Route::get('/profile/posts', [PostController::class, 'userPosts'])->name('profile.posts');
@@ -41,32 +34,21 @@ Route::get('/profile/saved', [PostController::class, 'savedPosts'])->name('profi
 Route::get('/profile/settings', [ProfileController::class, 'settings'])->name('profile.settings');
 Route::get('/profile/works', [ProfileController::class, 'works'])->name('profile.works');
 Route::get('/profile/themes', [ProfileController::class, 'themes'])->name('profile.themes');
-
 Route::get('/theme/{themeId}/posts', [ThemeController::class, 'show'])->name('theme.posts');
 Route::get('/theme/{themeId}/news', [ThemeController::class, 'news'])->name('theme.news');
 Route::get('/theme/{themeId}/settings', [ThemeController::class, 'settings'])->name('theme.settings');
 Route::get('/theme/{themeId}/polls', [ThemeController::class, 'polls'])->name('theme.polls');
-
 Route::get('/following', function () {
     return view('following');
 })->name('following');
-
-Route::get('/notifications', function () {
-    return view('notificationsPage');
-})->name('notifications');
-
+Route::get('/notifications', [NotificationController::class, 'userNotifications'])->name('notifications');
 Route::get('/theme/{themeId}', [ThemeController::class, 'show'])->name('theme.show');
 Route::get('/search/themes', [ThemeController::class, 'search'])->name('search.themes');
-
 Route::get('/staffsettings', function () {
     return view('staffSettings');
 })->name('staffSettings');
 
-Route::get('/notifications', [NotificationController::class, 'userNotifications'])->name('notifications');
-
-// POST
-
-
+// POST Routes
 Route::post('/register', [UserController::class, 'register'])->name('user.register');
 Route::post('/login', [UserController::class, 'login'])->name('user.login');
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
@@ -78,7 +60,11 @@ Route::post('/news/store', [NewsController::class, 'store'])->name('news.store')
 Route::post('/poll/store', [PollController::class, 'store'])->name('poll.store');
 Route::post('/poll/vote/{poll}', [PollController::class, 'vote'])->name('poll.vote');
 Route::post('/theme/{themeId}/follow', [ThemeController::class, 'follow'])->name('theme.follow');
+Route::post('/themes/{themeId}/post/store', [ThemeController::class, 'storePost'])->name('theme.post.store');
+Route::post('/admin/turnModerator/{userId}', [AdministratorController::class, 'turnModerator'])->name('admin.turnModerator');
+Route::post('/admin/turnAdministrator/{userId}', [AdministratorController::class, 'turnAdministrator'])->name('admin.turnAdministrator');
+Route::post('/admin/promoteAdministrator/{userId}', [AdministratorController::class, 'promoteAdministrator'])->name('admin.promoteAdministrator');
 
-// DELETE
-
-Route::delete('/user/delete', [UserController::class, 'deleteAccount'])->name('user.delete');
+// DELETE Routes
+Route::delete('/admin/user/delete/{userId}', [AdministratorController::class, 'deleteAccount'])->name('admin.deleteAccount');
+Route::delete('/admin/user/demote/{userId}', [AdministratorController::class, 'demoteUser'])->name('admin.demoteUser');

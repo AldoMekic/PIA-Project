@@ -45,9 +45,6 @@
             @if (auth()->user()->isAdmin())
                 <li><a href="{{ route('adminPage') }}">Admin Page</a></li>
             @endif
-            @if (auth()->user()->isModeratorOrAdmin())
-                <li><a href="{{ route('staffSettings') }}">Staff Settings</a></li>
-            @endif
             <li>
                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                     @csrf

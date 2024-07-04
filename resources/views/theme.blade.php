@@ -24,6 +24,10 @@
 </div>
 
 <div class="posts-container">
+    @auth
+    @include('components.createThemePost', ['theme' => $theme])
+    @endauth
+
     @foreach ($theme->posts as $post)
         <x-post :postID="$post->postID" :title="$post->title" :author="$post->author">
             {{ $post->content }}

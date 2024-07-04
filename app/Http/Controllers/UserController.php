@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Models\UserPassword;
 
 class UserController extends Controller
 {
@@ -108,30 +109,38 @@ class UserController extends Controller
     }
 
     public function changePassword(Request $request)
-    {
-        $request->validate([
-            'password' => 'required|string|min:8',
-        ]);
+{
+    $request->validate([
+        'password' => 'required|string|min:8',
+    ]);
 
-        $user = Auth::user();
-        $newPassword = $request->input('password');
-        $passwordRecord = UserPassword::where('user_id', $user->userId)->first();
+    $user = Auth::user();
+    $newPassword = $request->input('password');
 
-        if (Hash::check($newPassword, $passwordRecord->first_pass) || Hash::check($newPassword, $passwordRecord->second_pass)) {
-            return back()->withErrors(['password' => 'The new password cannot be the same as your current or previous passwords.']);
-        }
+    // Retrieve the current password record
+    $passwordRecord = UserPassword::where('user_id', $user->id)->first();
 
-        // Update the passwords
-        $passwordRecord->second_pass = $passwordRecord->first_pass; // Move current to previous
-        $passwordRecord->first_pass = Hash::make($newPassword); // Set new password
-        $passwordRecord->save();
-
-        // Update user's password
-        $user->password = Hash::make($newPassword);
-        $user->save();
-
-        return redirect()->route('profile.settings')->with('success', 'Password successfully changed.');
+    // Check if a password record exists for the user
+    if (!$passwordRecord) {
+        return back()->withErrors(['password' => 'Password record not found for this user.']);
     }
+
+    // Check if new password matches current or previous passwords
+    if (Hash::check($newPassword, $passwordRecord->first_pass) || Hash::check($newPassword, $passwordRecord->second_pass)) {
+        return back()->withErrors(['password' => 'The new password cannot be the same as your current or previous passwords.']);
+    }
+
+    // Update the passwords
+    $passwordRecord->second_pass = $passwordRecord->first_pass; // Move current to previous
+    $passwordRecord->first_pass = Hash::make($newPassword); // Set new password
+    $passwordRecord->save();
+
+    // Update user's password in the users table
+    $user->password = Hash::make($newPassword);
+    $user->save();
+
+    return redirect()->route('profile.settings')->with('success', 'Password successfully changed.');
+}
 
     public function deleteAccount(Request $request)
     {
