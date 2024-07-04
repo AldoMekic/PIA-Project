@@ -15,12 +15,15 @@
     <link rel="stylesheet" href="{{ asset('css/createPost.css') }}">
     <link rel="stylesheet" href="{{ mix('css/profile_info.css') }}">
     <link rel="stylesheet" href="{{ mix('css/searchBar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/notification.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
     <link rel="stylesheet" href="{{ asset('css/textCard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme_post.css') }}">
     <link rel="stylesheet" href="{{ asset('css/theme_navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/deleteAccount.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/notifications.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/browsing.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/moderatorThemes.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/adminPage.css') }}">
 </head>
 <body>
 <nav>
@@ -34,6 +37,14 @@
 
         @auth
             <li><a href="{{ route('profile') }}">Profile</a></li>
+            <li><a href="{{ route('notifications') }}">Notifications</a></li>
+            <li><a href="{{ route('browsing') }}">Browse</a></li>
+            @if (auth()->user()->isModerator())
+                <li><a href="{{ route('moderatorThemes') }}">Moderator Themes</a></li>
+            @endif
+            @if (auth()->user()->isAdmin())
+                <li><a href="{{ route('adminPage') }}">Admin Page</a></li>
+            @endif
             @if (auth()->user()->isModeratorOrAdmin())
                 <li><a href="{{ route('staffSettings') }}">Staff Settings</a></li>
             @endif

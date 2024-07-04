@@ -11,7 +11,7 @@ class ThemeController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-        $themes = Theme::with('posts')->where('name', 'LIKE', "%{$query}%")->get();
+        $themes = Theme::where('name', 'LIKE', "%{$query}%")->get();
 
         return response()->json($themes);
     }

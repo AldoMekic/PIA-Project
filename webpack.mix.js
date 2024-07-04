@@ -50,7 +50,7 @@ mix.setPublicPath('public')
     .css("resources/css/searchBar.css", "public/css")
 
 mix.setPublicPath('public')
-    .css("resources/css/notification.css", "public/css")
+    .css("resources/css/notifications.css", "public/css")
 
 mix.setPublicPath('public')
     .css("resources/css/theme.css", "public/css")
@@ -66,3 +66,12 @@ mix.setPublicPath('public')
 
 mix.setPublicPath('public')
     .css("resources/css/deleteAccount.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/adminPage.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/moderatorThemes.css", "public/css")
+
+mix.setPublicPath('public')
+    .css("resources/css/browsing.css", "public/css")

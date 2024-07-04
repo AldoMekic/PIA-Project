@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Moderator;
+use App\Models\Administrator;
 
-class ModeratorController extends Controller
+class AdministratorController extends Controller
 {
-    public function getModeratorById($moderatorId)
+    public function getAdministratorById($adminId)
     {
-        $moderator = Moderator::find($moderatorId);
-        return $moderator;
+        $administrator = Administrator::find($adminId);
+        return $administrator;
+    }
+
+    public function showAdminPage()
+    {
+        return view('adminPage');
     }
 }

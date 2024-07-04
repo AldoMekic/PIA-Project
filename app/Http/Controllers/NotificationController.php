@@ -15,4 +15,9 @@ class NotificationController extends Controller
 
         return view('notificationsPage', compact('notifications'));
     }
+
+    public function showNotificationPage()
+    {
+        return view('notificationsPage');
+    }
 }

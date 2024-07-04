@@ -7,9 +7,19 @@ use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\PollController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\BrowsingController;
+use App\Http\Controllers\ModeratorController;
+use App\Http\Controllers\AdministratorController;
 
 
 // GET
+
+Route::get('/notifications', [NotificationController::class, 'userNotifications'])->name('notifications');
+Route::get('/browsing', [BrowsingController::class, 'index'])->name('browsing');
+Route::get('/moderator-themes', [ModeratorController::class, 'index'])->name('moderatorThemes')->middleware('moderator');
+Route::get('/admin', [AdministratorController::class, 'index'])->name('adminPage')->middleware('admin');
+
 
 
 Route::get('/', function () {

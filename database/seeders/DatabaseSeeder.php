@@ -48,9 +48,9 @@ class DatabaseSeeder extends Seeder
 
         // Insert themes
         $themes = [
-            ['name' => 'Fantasy', 'description' => 'Discussion about Fantasy genre', 'followers' => 100, 'posts' => 50, 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Science Fiction', 'description' => 'Discussion about Science Fiction genre', 'followers' => 80, 'posts' => 40, 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Mystery', 'description' => 'Discussion about Mystery genre', 'followers' => 60, 'posts' => 30, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Fantasy', 'description' => 'Discussion about Fantasy genre', 'followers' => 100, 'postCount' => 50, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Science Fiction', 'description' => 'Discussion about Science Fiction genre', 'followers' => 80, 'postCount' => 40, 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Mystery', 'description' => 'Discussion about Mystery genre', 'followers' => 60, 'postCount' => 30, 'created_at' => now(), 'updated_at' => now()],
         ];
 
         DB::table('themes')->insert($themes);
