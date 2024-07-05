@@ -1,4 +1,77 @@
 .moderator-themes-container {
     padding: 20px;
-    /* Add your custom styles here */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.create-theme, .theme-list {
+    margin-bottom: 30px;
+}
+
+.theme-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.theme-input, .theme-textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.theme-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-button:hover {
+    background-color: #218838;
+}
+
+.theme-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.theme-table th, .theme-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.theme-table th {
+    background-color: #f2f2f2;
+}
+
+.theme-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.delete-button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
 }

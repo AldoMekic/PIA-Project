@@ -22,7 +22,7 @@
 
         <div class="theme-list">
             <h2>Managed Themes</h2>
-            <table>
+            <table class="theme-table">
                 <thead>
                     <tr>
                         <th>Theme Name</th>
@@ -34,10 +34,10 @@
                         <tr>
                             <td>{{ $theme->name }}</td>
                             <td>
-                                <form action="{{ route('theme.delete', ['themeId' => $theme->themeId]) }}" method="POST">
+                                <form action="{{ route('theme.delete', ['themeId' => $theme->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit">Delete Theme</button>
+                                    <button type="submit" class="delete-button">Delete Theme</button>
                                 </form>
                             </td>
                         </tr>
