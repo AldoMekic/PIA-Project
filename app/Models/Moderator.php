@@ -17,4 +17,9 @@ class Moderator extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function themes()
+    {
+        return $this->belongsToMany(Theme::class, 'moderator_themes', 'moderator_id', 'theme_id');
+    }
 }

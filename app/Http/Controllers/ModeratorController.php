@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Theme;
-use App\Models\User;
+use App\Models\Moderator;
+use App\Models\ModeratorTheme; // Ensure this is imported
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,9 +13,8 @@ class ModeratorController extends Controller
     public function index()
     {
         $moderatorId = Auth::id();
-        $themes = Theme::whereHas('moderators', function ($query) use ($moderatorId) {
-            $query->where('moderator_id', $moderatorId);
-        })->get();
+        $moderator = Moderator::where('user_id', $moderatorId)->first();
+        $themes = $moderator->themes()->get();
 
         return view('moderatorThemesPage', compact('themes'));
     }
@@ -27,18 +27,23 @@ class ModeratorController extends Controller
             'description' => 'nullable|string|max:1000',
         ]);
 
-        // Create new theme
-        $theme = new Theme();
-        $theme->name = $request->input('name');
-        $theme->description = $request->input('description');
-        $theme->save();
+        // Wrap the creation process in a transaction
+        \DB::transaction(function () use ($request) {
+            // Create new theme
+            $theme = new Theme();
+            $theme->name = $request->input('name');
+            $theme->description = $request->input('description');
+            $theme->save();
 
-        // Attach theme to moderator
-        $moderatorId = Auth::id();
-        ModeratorTheme::create([
-            'moderator_id' => $moderatorId,
-            'theme_id' => $theme->id,
-        ]);
+            // Attach theme to moderator
+            $moderatorId = Auth::id();
+            $moderator = Moderator::where('user_id', $moderatorId)->first(); // Get the moderator instance
+
+            ModeratorTheme::create([
+                'moderator_id' => $moderator->moderatorId,
+                'theme_id' => $theme->themeId,
+            ]);
+        });
 
         return redirect()->route('moderator.themes')->with('success', 'Theme created successfully.');
     }
@@ -103,4 +108,3 @@ class ModeratorController extends Controller
         return redirect()->back()->with('success', 'Theme deleted successfully.');
     }
 }
-

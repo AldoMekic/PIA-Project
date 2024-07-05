@@ -30,18 +30,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($themes as $theme)
+                    @forelse ($themes as $theme)
                         <tr>
                             <td>{{ $theme->name }}</td>
                             <td>
-                                <form action="{{ route('theme.delete', ['themeId' => $theme->id]) }}" method="POST">
+                                <form action="{{ route('theme.delete', ['themeId' => $theme->themeId]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit">Delete Theme</button>
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="2">No themes available</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
