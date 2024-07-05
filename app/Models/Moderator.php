@@ -10,7 +10,7 @@ class Moderator extends Model
     protected $primaryKey = 'moderatorId'; 
 
     protected $fillable = [
-        'name', 'surname', 'gender', 'birthplace', 'date_of_birth', 'jmbg', 'phone_num', 'email', 'user_id'
+         'user_id'
     ];
 
     public function user()

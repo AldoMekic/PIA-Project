@@ -93,3 +93,45 @@
 .create-comment button:hover {
     background-color: sandybrown;
 }
+
+.theme-form {
+    background-color: lightgoldenrodyellow;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: none;
+}
+
+.theme-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.theme-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid burlywood;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.theme-button {
+    background-color: burlywood;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-button:hover {
+    background-color: sandybrown;
+}

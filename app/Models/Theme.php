@@ -32,4 +32,9 @@ class Theme extends Model
     {
         return $this->hasMany(Poll::class, 'theme_id');
     }
+
+    public function moderators()
+{
+    return $this->belongsToMany(Moderator::class, 'moderator_themes', 'theme_id', 'moderator_id');
+}
 }

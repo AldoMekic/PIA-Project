@@ -1,19 +1,28 @@
 .admin-page-container {
     padding: 20px;
+    background-color: lightgoldenrodyellow;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-page-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 .admin-table {
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 2px solid burlywood;
     border-radius: 5px;
     overflow: hidden;
 }
 
 .admin-table h2 {
-    background-color: #f0f0f0;
+    background-color: aliceblue;
     padding: 10px;
     margin: 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid burlywood;
+    font-size: 1.5rem;
 }
 
 .admin-table table {
@@ -24,11 +33,13 @@
 .admin-table th, .admin-table td {
     padding: 10px;
     text-align: left;
+    border-bottom: 1px solid #ccc;
 }
 
 .admin-table th {
-    background-color: #f0f0f0;
-    border-bottom: 1px solid #ccc;
+    background-color: aliceblue;
+    font-size: 1rem;
+    color: #333;
 }
 
 .admin-table tbody tr:nth-child(even) {
@@ -36,5 +47,21 @@
 }
 
 .admin-table tbody tr:hover {
-    background-color: #e0e0e0;
+    background-color: sandybrown;
+    color: white;
+}
+
+.admin-table button {
+    padding: 5px 10px;
+    background-color: lightgoldenrodyellow;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-table button:hover {
+    background-color: sandybrown;
+    color: white;
 }

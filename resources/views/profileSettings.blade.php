@@ -11,7 +11,6 @@
         <p>User joined on: {{ Auth::user()->created_at->format('m/d/Y') }}</p>
     </div>
     @include('components.navbar')
-    @include('components.user_settings') <!-- User settings component -->
     @include('components.delete_account') <!-- Delete account component -->
 @else
     <p>No user data available.</p>

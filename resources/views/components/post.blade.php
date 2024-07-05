@@ -8,14 +8,11 @@
     </div>
     @auth
     <div class="post-footer">
-        <button onclick="toggleComment()">Comment</button>
-        <button>Like</button>
         <form action="{{ route('post.savePost', ['postID' => $postID]) }}" method="POST" style="display:inline;">
             @csrf
             <button type="submit">Save</button>
         </form>
     </div>
-    <x-createComment id="comment-section" style="display: none;" />
     @endauth
 </div>
 
@@ -38,14 +35,5 @@
             }
         })
         .catch(error => console.error('Error:', error));
-    }
-
-    function toggleComment() {
-        var commentSection = document.getElementById('comment-section');
-        if (commentSection.style.display === 'none' || commentSection.style.display === '') {
-            commentSection.style.display = 'block';
-        } else {
-            commentSection.style.display = 'none';
-        }
     }
 </script>

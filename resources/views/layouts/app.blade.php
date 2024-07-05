@@ -37,7 +37,6 @@
 
         @auth
             <li><a href="{{ route('profile') }}">Profile</a></li>
-            <li><a href="{{ route('notifications') }}">Notifications</a></li>
             <li><a href="{{ route('browsing') }}">Browse</a></li>
             @if (auth()->user()->isModerator())
                 <li><a href="{{ route('moderatorThemes') }}">Moderator Themes</a></li>

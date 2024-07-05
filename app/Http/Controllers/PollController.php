@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
 use App\Models\Poll;
+use App\Models\UserPoll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,7 +19,7 @@ class PollController extends Controller
             'theme_id' => 'required|exists:themes,themeId'
         ]);
 
-        Poll::create([
+        $poll = Poll::create([
             'author' => Auth::user()->username,
             'title' => $validatedData['title'],
             'optionOne' => $validatedData['optionOne'],
@@ -35,24 +34,69 @@ class PollController extends Controller
     }
 
     public function vote(Request $request, $pollId)
-{
-    $poll = Poll::findOrFail($pollId);
-    $option = $request->input('option');
+    {
+        $poll = Poll::findOrFail($pollId);
+        $option = $request->input('option');
+        $user = Auth::user();
 
-    if ($option == 'optionOne') {
-        $poll->numOne += 1;
-    } elseif ($option == 'optionTwo') {
-        $poll->numTwo += 1;
-    } elseif ($option == 'optionThree') {
-        $poll->numThree += 1;
-    } elseif ($option == 'optionFour') {
-        $poll->numFour += 1;
-    } elseif ($option == 'optionFive') {
-        $poll->numFive += 1;
+        // Check if user already voted on this poll
+        $existingVote = UserPoll::where('user_id', $user->id)
+                                ->where('poll_id', $pollId)
+                                ->exists();
+
+        if (!$existingVote) {
+            // Create user poll record
+            UserPoll::create([
+                'user_id' => $user->id,
+                'poll_id' => $pollId,
+            ]);
+
+            // Update poll option count based on user's choice
+            // Example logic similar to your existing vote method
+        }
+
+        return response()->json(['success' => true]);
     }
 
-    $poll->save();
+    public function unvote(Request $request, $pollId)
+    {
+        $user = Auth::user();
 
-    return redirect()->back()->with('success', 'Vote submitted successfully!');
-}
+        // Delete user poll record for unvoting
+        UserPoll::where('user_id', $user->id)
+                ->where('poll_id', $pollId)
+                ->delete();
+
+        // Update poll option count based on user's unvote choice
+        // Example logic similar to your existing unvote method
+
+        return response()->json(['success' => true]);
+    }
+
+    public function showPoll($pollId)
+    {
+        $poll = Poll::findOrFail($pollId);
+        
+        // Determine if the user has already voted on this poll
+        $userHasVoted = UserPoll::where('user_id', Auth::id())
+                                ->where('poll_id', $pollId)
+                                ->exists();
+
+        return view('pollPost', [
+            'pollId' => $pollId,
+            'title' => $poll->title,
+            'author' => $poll->author,
+            'optionOne' => $poll->optionOne,
+            'numOne' => $poll->numOne,
+            'optionTwo' => $poll->optionTwo,
+            'numTwo' => $poll->numTwo,
+            'optionThree' => $poll->optionThree,
+            'numThree' => $poll->numThree,
+            'optionFour' => $poll->optionFour,
+            'numFour' => $poll->numFour,
+            'optionFive' => $poll->optionFive,
+            'numFive' => $poll->numFive,
+            'pollVoted' => $userHasVoted, // Pass the variable indicating whether the user has voted
+        ]);
+    }
 }
